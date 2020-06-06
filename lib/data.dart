@@ -8,8 +8,10 @@ User u1 = User('Alexey Sennikov',  'https://clck.ru/N8Wo6', [], [], [], [], true
 User u2 = User('Alexey Sennikov',  'https://clck.ru/N8Wo6', [], [], [], [], true);
 User u3 = User('Alexey Sennikov',  'https://clck.ru/N8Wo6', [], [], [], [], true);
 Comment com = Comment(u1, "This was amazing!", DateTime.now(), false);
-Post p1 = Post('https://clck.ru/N8Wo6', u1, 'Идея', DateTime.now(), [], [com],true, false );
-Post p2 = Post('https://clck.ru/N8Wo6', u2, 'Замысел', DateTime.now(), [], [com],true, false );
+Post p1 = Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
+    u1, 'Идея', DateTime.now(), [], [com],true, false, 2, 'Bragino');
+Post p2 = Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
+    u2, 'Замысел', DateTime.now(), [], [com],true, false, 1, '5');
 
 List<Post> posts = [p1, p2];
 
