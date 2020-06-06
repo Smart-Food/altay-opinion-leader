@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:opinionleader/animation/fadeAnimation.dart';
+import 'package:opinionleader/news/commentPage.dart';
 import 'package:opinionleader/post/post.dart';
 import 'package:opinionleader/data.dart';
 import 'newsInfo.dart';
@@ -12,7 +13,6 @@ class News extends StatefulWidget {
   @override
   ItemState createState() => ItemState();
 }
-
 class ItemState extends State<News> {
   @override
   Widget build(BuildContext context) {
@@ -67,11 +67,26 @@ class ItemState extends State<News> {
                                                     fontSize: 12.0),
                                               ),
                                               Spacer(),
-                                              Icon(Icons.favorite_border, color: Colors.red, size: 20.0,),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                            color: Colors.blue,
+                                            borderRadius: BorderRadius.circular(5.0)
+                                              ),
+                                            child:Padding(
+                                                padding: const EdgeInsets.all(3.0),
+                                                child: Text(
+                                                  "Подписаться",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontSize: 12.0),
+                                                ),
+                                              ),
+                                      ),
+
                                             ],
                                           ),
                                           Text(
-                                            widget.post.date.toString(),
+                                            widget.post.heading.toString(),
                                             style: TextStyle(
                                                 color: Colors.black, fontSize: 14.0),
                                           ),
@@ -100,42 +115,41 @@ class ItemState extends State<News> {
                                 height: 3.0,
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 75.0),
+                                padding: EdgeInsets.only(left: 20.0),
                                 child: Row(
                                   children: <Widget>[
                                     Container(
                                       child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
+                                        padding: EdgeInsets.all(1.0),
                                         child: Row(
                                           children: <Widget>[
                                             FlatButton(
                                               onPressed: () {
                                                 setState((){
-//                                                if(cart.contains(widget)){
-//                                                  widget.num += 1;
-//                                                }
-//                                                else {
-//                                                  cart.add(widget); //update
-//                                                  widget.num = 1;
-//                                                }
-//                                                sum += widget.price;
+                                                  if(widget.post.isLiked == true){
+                                                    widget.post.isLiked = false;
+                                                  }
+                                                  else{
+                                                    widget.post.isLiked = true;
+                                                  }
                                               }
                                               );},
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                    color: Colors.blue,
-                                                    borderRadius: BorderRadius.circular(5.0)
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(3.0),
-                                                  child: Text(
-                                                    "Подписаться",
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12.0),
-                                                  ),
-                                                ),
-                                              ),
+                                              child:Icon(widget.post.isLiked ? Icons.favorite : Icons.favorite_border,
+                                                color: Colors.red, size: 25.0,),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Padding(
+                                        padding: EdgeInsets.all(1.0),
+                                        child: Row(
+                                          children: <Widget>[
+                                            FlatButton(
+                                              onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context) => CommentPage(widget.post.comments)));},
+                                              child:Icon(Icons.mode_comment, color: Colors.black, size: 25.0,),
                                             ),
                                           ],
                                         ),

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'newsList.dart';
-
+import 'commentPage.dart';
+import 'commentCard.dart';
 import 'package:opinionleader/post/post.dart';
 import 'package:opinionleader/data.dart';
 
@@ -135,6 +136,20 @@ class _NewsInfoState extends State<NewsInfo> {
             padding: EdgeInsets.only(top: 0),
             child: Text(prod.description),
           ),
+          //Divider(),
+          //SizedBox(height: 5),
+          
+          /*Container(
+              child: Center(
+                child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index){
+                    return CommentCard(comment: prod.comments[index]);
+                  },
+                  itemCount: prod.comments.length,
+                ),
+              ) ,
+          )*/
+
         ],
       ),
     );

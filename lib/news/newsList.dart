@@ -18,9 +18,9 @@ class _NewsListState extends State<NewsList> {
       body: Center (
         child: ListView.builder(
             itemBuilder: (BuildContext context, int index){
-              return News(post: posts[index]);
+              return News(post: widget.posts[index]);
             },
-            itemCount: posts.length,
+            itemCount: widget.posts.length,
           )),
       floatingActionButton: CircleAvatar(
         radius: 7.8 * 3,
