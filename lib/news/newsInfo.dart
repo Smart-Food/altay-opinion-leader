@@ -124,7 +124,6 @@ class _NewsInfoState extends State<NewsInfo> {
           ),
           //Divider(),
           //SizedBox(height: 5),
-
           /*Container(
               child: Center(
                 child: ListView.builder(
