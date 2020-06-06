@@ -67,11 +67,7 @@ class ItemState extends State<News> {
                                                     fontSize: 12.0),
                                               ),
                                               Spacer(),
-                                              Icon(
-                                                Icons.favorite_border,
-                                                color: Colors.red,
-                                                size: 20.0,
-                                              )
+                                              Icon(Icons.favorite_border, color: Colors.red, size: 20.0,),
                                             ],
                                           ),
                                           Text(
