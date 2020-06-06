@@ -310,7 +310,7 @@ class _AddState extends State<Add> {
                 onPressed: () {
                   setState(() {
                     posts.add(Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
-                        u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text,'Облагораживание двора'));
+                        u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text, _heading.text, _topic.text));
 
                     _area.clear();
                     _description.clear();

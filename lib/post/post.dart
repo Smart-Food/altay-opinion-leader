@@ -14,8 +14,9 @@ class Post {
   int rating;
   String area;
   String heading;
+  String topic;
 
   Post(this.image, this.user, this.description,
       this.date, this.likes, this.comments,
-      this.isLiked, this.isSaved, this.rating, this.area, this.heading);
+      this.isLiked, this.isSaved, this.rating, this.area, this.heading, this.topic);
 }
