@@ -13,8 +13,9 @@ class Post {
   bool isSaved;
   int rating;
   String area;
+  String heading;
 
   Post(this.image, this.user, this.description,
       this.date, this.likes, this.comments,
-      this.isLiked, this.isSaved, this.rating, this.area);
+      this.isLiked, this.isSaved, this.rating, this.area, this.heading);
 }
