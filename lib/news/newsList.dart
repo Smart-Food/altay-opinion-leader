@@ -31,6 +31,7 @@ class _NewsListState extends State<NewsList> {
               builder: (context) => PostsCamera()));},
         ),
       ),
+        bottomNavigationBar: Container(height: 70.0,)
     );
   }
 }
