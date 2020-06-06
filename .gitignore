@@ -24,7 +24,7 @@ doc/api/
 
 .idea/flutter_app.iml
 
-*.xml
+
 .idea
 
 build
