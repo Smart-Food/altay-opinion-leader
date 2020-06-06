@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:opinionleader/posts.dart';
+import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/add.dart';
-
+import 'package:opinionleader/data.dart';
 class Profile extends StatefulWidget {
   Profile({Key key, this.title}) : super(key: key);
 
@@ -36,20 +36,20 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
                   Row(
                     children: <Widget>[
                       Container(
-                        height: 44,
-                        width: 88,
+                        height: 50,
+                        width: 50,
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: AssetImage("assets/profileimg.png"))
+                                image: NetworkImage("https://sun9-40.userapi.com/c857424/v857424894/dfe29/l2B0jorKZwE.jpg"))
                         ),
                       ),
-                      SizedBox(width: 20),
+                      SizedBox(width: 30),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text("Вениамин Мануклян", style: TextStyle(
+                          Text("Вениамин Манукян", style: TextStyle(
                               color: Colors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.bold
@@ -71,7 +71,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
                                   ),),
                                 ],
                               ),
-                              SizedBox(width: 35),
+                              SizedBox(width: 15),
                               Row(
                                 children: <Widget>[
                                   Image.asset(
@@ -92,7 +92,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
                       )
                     ],
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -166,8 +166,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
               child: TabBarView(
                   controller: tabController,
                   children: <Widget>[
-                    Posts(),
-                    Posts(),
+                    NewsList(posts),
+                    NewsList(posts),
                   ]),
             ),
           )

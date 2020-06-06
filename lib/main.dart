@@ -37,7 +37,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
 
   List<GButton> tabs = new List();
   final List<Widget> _children = [
-    NewsList(),
+    NewsList(posts),
     Search(),
     Favorite(),
     Profile(),
