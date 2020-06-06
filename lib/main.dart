@@ -37,7 +37,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
 
   List<GButton> tabs = new List();
   final List<Widget> _children = [
-    NewsList(),
+    NewsList(posts),
     Search(),
     Favorite(),
     Profile(),
@@ -101,9 +101,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         extendBody: true,
         body: PageView.builder(
           onPageChanged: (page) {
@@ -138,7 +136,6 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
