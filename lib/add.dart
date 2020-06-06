@@ -5,8 +5,6 @@ import 'data.dart';
 
 class Add extends StatefulWidget {
   Add({Key key, this.title}) : super(key: key);
-
-
   final String title;
 
   @override
@@ -47,9 +45,12 @@ class _AddState extends State<Add> {
               child: Icon(Icons.add_photo_alternate),
               onPressed: () {
                 setState(() {
-                  posts.add(Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
-                      u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text));
-
+                  posts.add(
+                      Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
+                          u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text));
+                  userPosts.add(
+                      Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
+                          u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text));
                   _area.clear();
                   _description.clear();
                 });
