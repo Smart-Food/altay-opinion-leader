@@ -7,7 +7,6 @@ import 'package:opinionleader/post/comment.dart';
 class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Opinion leader'),
@@ -93,9 +92,9 @@ class SearchPage extends SearchDelegate<Post>{
       controller: ScrollController(),
       itemBuilder: (context, index){
         return ListTile(
-          title: Text(suggestionList[index].user.toString()),
+          title: Text(suggestionList[index].user.username.toString()),
           subtitle: Text(suggestionList[index].date.toString()),
-          trailing: Text("\$${suggestionList[index].likes}",
+          trailing: Text("\$${suggestionList[index].likes.length}",
             style: TextStyle(color: Colors.redAccent, fontSize: 20, fontWeight: FontWeight.w500),),
           leading: Image.network(suggestionList[index].image),
           /*onTap: () {
@@ -150,18 +149,14 @@ class SearchPage extends SearchDelegate<Post>{
               ),
             );
           },*/
-          trailing: Text(suggestionList[index].likes.toString() + 'р',
+          trailing: Text(suggestionList[index].likes.length.toString() ,
             style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),),
           title: RichText(
             text: TextSpan(
-                text: suggestionList[index].user.toString().substring(0, query.length),
+                text: suggestionList[index].user.username.toString(),
                 style: TextStyle(
                     color: Colors.grey, fontWeight: FontWeight.bold),
-                children: [
-                  TextSpan(
-                      text: suggestionList[index].user.toString().substring(query.length),
-                      style: TextStyle(color: Colors.grey)),
-                ]),
+                ),
           ),
           subtitle: Text(suggestionList[index].date.toString()),
           leading: Image.network(suggestionList[index].image),
