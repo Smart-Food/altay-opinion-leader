@@ -1,44 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:opinionleader/animation/fadeAnimation.dart';
-
+import 'package:opinionleader/post/post.dart';
+import 'package:opinionleader/data.dart';
 import 'newsInfo.dart';
 
 // ignore: must_be_immutable
-class Item extends StatefulWidget {
-  String name,
-      brand,
-      picture;
-  double price,
-      value,
-      oldPrice;
-  int id, num;
-  Item({
-    this.name, this.brand, this.price, this.value,
-    this.picture, this.oldPrice, this.id, this.num=0
-  });
+class News extends StatefulWidget {
+  Post post;
+  News({this.post });
 
   @override
   ItemState createState() => ItemState();
 }
 
-class ItemState extends State<Item> {
+class ItemState extends State<News> {
   @override
   Widget build(BuildContext context) {
     return Card(
         child: FadeAnimation(
             1,
             Hero(
-                tag: widget.id,
+                tag: widget.post.image,
                 child: Material(
                   child: InkWell(
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => NewsInfo()
-//                          (item:
-//                        Item(
-//                          name: widget.name, id:widget.id, picture: widget.picture,
-//                          value: widget.value, brand: widget.brand,
-//                          oldPrice: widget.oldPrice, price: widget.price,)
-//                        )
+                        builder: (context) => NewsInfo(item: widget.post,)
                     )),
                     child: Container(
                       height: 150.0,
@@ -59,7 +45,7 @@ class ItemState extends State<Item> {
                                     child: Padding(
                                       padding: const EdgeInsets.all(3.0),
                                       child: Image.network(
-                                        widget.picture,
+                                        widget.post.image,
                                         height: 60.0,
                                         width: 60.0,),
                                     ),
@@ -74,7 +60,7 @@ class ItemState extends State<Item> {
                                           Row(
                                             children: <Widget>[
                                               Text(
-                                                widget.name,
+                                                widget.post.user.username,
                                                 style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold,
@@ -89,7 +75,7 @@ class ItemState extends State<Item> {
                                             ],
                                           ),
                                           Text(
-                                            widget.price.toString() + "р.",
+                                            widget.post.date.toString(),
                                             style: TextStyle(
                                                 color: Colors.black, fontSize: 14.0),
                                           ),
@@ -99,11 +85,11 @@ class ItemState extends State<Item> {
                                           Row(
                                             children: <Widget>[
                                               Text(
-                                                widget.oldPrice.toString() + "р.",
+                                                widget.post.date.toString() ,
                                                 style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 12.0,
-                                                    decoration: TextDecoration.lineThrough
+
                                                 ),
                                               ),
                                             ],
@@ -147,7 +133,7 @@ class ItemState extends State<Item> {
                                                 child: Padding(
                                                   padding: const EdgeInsets.all(3.0),
                                                   child: Text(
-                                                    "Добавить в корзину",
+                                                    "Подписаться",
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 12.0),

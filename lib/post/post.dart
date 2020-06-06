@@ -11,6 +11,10 @@ class Post {
   DateTime date;
   bool isLiked;
   bool isSaved;
+  int rating;
+  String area;
 
-  Post(this.image, this.user, this.description, this.date, this.likes, this.comments, this.isLiked, this.isSaved);
+  Post(this.image, this.user, this.description,
+      this.date, this.likes, this.comments,
+      this.isLiked, this.isSaved, this.rating, this.area);
 }

@@ -48,10 +48,14 @@ class Search extends StatelessWidget {
                       onTap: () {showSearch(context: context, delegate: SearchPage(posts));},
                     ),
                   ),
-                ]
+
+                ],
+
             )
 
-          ));
+          ),
+
+    );
 
   }
 }

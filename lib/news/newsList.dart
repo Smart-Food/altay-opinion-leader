@@ -1,58 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:opinionleader/news/newsData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:opinionleader/post/post.dart';
+import 'package:opinionleader/data.dart';
+import 'package:opinionleader/news/news.dart';
+import 'package:opinionleader/add.dart';
 class NewsList extends StatefulWidget {
+
   @override
-  State<StatefulWidget> createState() {
-    return NewsListState();
-  }
+  _NewsListState createState() => _NewsListState();
 }
 
-class NewsListState extends State<NewsList> {
-  List<NewsData> data = [];
+class _NewsListState extends State<NewsList> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          child: ListView(
-            children: _buildList(),
-          )
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.refresh),
-        onPressed: () => _loadNews(),
-      ),
-    );
-  }
+      appBar: AppBar(title: Text('Opinion Leader')),
+      body: Center (
+        child: ListView.builder(
+            itemBuilder: (BuildContext context, int index){
+              return News(post: posts[index]);
+            },
+            itemCount: posts.length,
+          )),
+      floatingActionButton: CircleAvatar(
+      radius: 7.8 * 3,
 
-  _loadNews() async {
-    final response = await http.get('https://clck.ru/NqvvE');
-    if (response.statusCode == 200) {
-      print(response.body);
-      var allData = (json.decode(response.body) as Map)['data']
-        as Map<String, dynamic>;
-      var newsList =  List<NewsData>();
-      allData.forEach((String key, dynamic val) {
-        var record = NewsData(
-            name: val['name'],
-            symbol: val['symbol'],
-            price: val['price']);
-        newsList.add(record);
-      });
-      setState(() {
-        data = newsList;
-      });
-    }
-  }
+      backgroundColor: Color(0xFF63cb99),
+      child: IconButton(
+        icon: Icon(Icons.add, color: Colors.white,),
+        onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => Add()));},
+      ),
+      ),
+      bottomNavigationBar: Container(
+      height: 70.0,
+    ),
 
-  List<Widget> _buildList() {
-    return data.map((NewsData f) =>
-        ListTile(
-          title: Text(f.symbol),
-          subtitle: Text(f.name),
-          leading: CircleAvatar(child: Text(f.price.toString())),
-        )).toList();
+        );
+
   }
 }
