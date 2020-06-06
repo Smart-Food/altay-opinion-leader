@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:opinionleader/news/commentPage.dart';
 import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/add.dart';
 import 'package:opinionleader/data.dart';
+import 'package:opinionleader/post/comment.dart';
 class Profile extends StatefulWidget {
   Profile({Key key, this.title}) : super(key: key);
 
@@ -10,6 +12,7 @@ class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
+List<Comment> usercomments = [];
 
 class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
 
@@ -22,6 +25,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
     tabController = TabController(length: 2, vsync: this);
   }
   Widget build(BuildContext context) {
+    posts.forEach((item) {usercomments += item.comments;});
     return Scaffold(
       backgroundColor: Color(0xffF8F8FA),
       body: Column(
@@ -167,7 +171,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
                   controller: tabController,
                   children: <Widget>[
                     NewsList(posts),
-                    NewsList(posts),
+                    CommentPage(usercomments),
                   ]),
             ),
           )
