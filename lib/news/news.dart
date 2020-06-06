@@ -96,7 +96,7 @@ class ItemState extends State<News> {
                                           Row(
                                             children: <Widget>[
                                               Text(
-                                                widget.post.date.toString() ,
+                                                widget.post.topic.toString() ,
                                                 style: TextStyle(
                                                     color: Colors.black,
                                                     fontSize: 12.0,
