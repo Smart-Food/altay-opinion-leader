@@ -14,7 +14,7 @@ Post p2 = Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2
     u2, 'Замысел', DateTime.now(), [], [com],true, false, 1, '5');
 
 List<Post> posts = [p1, p2];
-
+List<Post> userPosts = [];
 
 //Post('https://clck.ru/N8Wo6', u2, 'Замысел', DateTime.now(), [u1,u2,u3], [com],true, false );
 //Post('https://clck.ru/N8Wo6', u3, 'хм', DateTime.now(), [u1,u2,u3], [com],true, false );

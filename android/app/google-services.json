@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "533671210765",
+    "firebase_url": "https://opinion-leader.firebaseio.com",
+    "project_id": "opinion-leader",
+    "storage_bucket": "opinion-leader.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533671210765:android:b519337a542a59cf648a44",
+        "android_client_info": {
+          "package_name": "com.smartfood.opinionleader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "533671210765-v2op1q2lt8o08r8dh0s0bfnut1up4dci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZnv2cl-BJyzaQf2BAThojR5Bryo7nQ3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "533671210765-v2op1q2lt8o08r8dh0s0bfnut1up4dci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
