@@ -56,7 +56,7 @@ class _NewsInfoState extends State<NewsInfo> {
                   ],
                 ),
                 child: Hero(
-                  tag: prod.image,
+                  tag: prod.date.toString(),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(30.0),
                     child: Image(

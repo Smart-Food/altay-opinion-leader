@@ -20,7 +20,7 @@ class ItemState extends State<News> {
         child: FadeAnimation(
             1,
             Hero(
-                tag: widget.post.image,
+                tag: widget.post.date.toString(),
                 child: Material(
                   child: InkWell(
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
