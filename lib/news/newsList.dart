@@ -66,7 +66,6 @@ class _NewsListProfileState extends State<NewsListProfile> {
             },
             itemCount: widget.posts.length,
           )),
-
     );
   }
 }

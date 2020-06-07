@@ -313,7 +313,9 @@ class _AddState extends State<Add> {
                     else if (_topic.text == "#Обратнаясвязь"|| _topic.text == " #Обратнаясвязь") topicColor = Colors.yellow;
                     else if (_topic.text == "#Расписание"|| _topic.text == " #Расписание") topicColor = Colors.purple;
                     posts.add(Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
-                        u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text, _heading.text, topicColor, _topic.text));
+                        u2, _description.text, DateTime.now(), [], [com], false, false, 1, _area.text, _heading.text, topicColor, _topic.text));
+                    userPosts.add(Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
+                        u2, _description.text, DateTime.now(), [], [com], false, false, 1, _area.text, _heading.text, topicColor, _topic.text));
                     Navigator.pop(context);
                   });
                 }
