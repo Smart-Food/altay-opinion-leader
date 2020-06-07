@@ -4,7 +4,8 @@ import 'package:opinionleader/search.dart';
 import 'package:opinionleader/favorite.dart';
 import 'package:opinionleader/profile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
+import 'package:opinionleader/news/newsList.dart';
+import 'package:opinionleader/data.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -36,7 +37,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
 
   List<GButton> tabs = new List();
   final List<Widget> _children = [
-    Home(),
+    NewsList(posts),
     Search(),
     Favorite(),
     Profile(),
@@ -100,9 +101,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         extendBody: true,
         body: PageView.builder(
           onPageChanged: (page) {
@@ -137,7 +136,6 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
