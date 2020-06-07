@@ -1,12 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:opinionleader/search.dart';
 import 'package:opinionleader/favorite.dart';
 import 'package:opinionleader/profile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/data.dart';
+import 'profile.dart';
 
 import 'home.dart';
+import 'login/authUtil.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -32,10 +37,12 @@ class BottomNavigationBarScreen extends StatefulWidget {
 }
 
 class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
-
+  File _image;
   int selectedIndex = 0;
 
   PageController controller = PageController();
+
+
 
   List<GButton> tabs = new List();
   final List<Widget> _children = [
@@ -44,6 +51,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     Favorite(),
     Profile(),
   ];
+
 
   @override
   void initState() {

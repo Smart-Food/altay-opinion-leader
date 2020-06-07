@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'data.dart';
+import 'home.dart';
+import 'login/authUtil.dart';
 
 class Favorite extends StatefulWidget {
   Favorite({Key key, this.title}) : super(key: key);
@@ -12,12 +17,14 @@ class Favorite extends StatefulWidget {
 }
 
 class _FavoriteState extends State<Favorite> {
-
+  File _image;
   @override
   Widget build(BuildContext context) {
     posts.sort((a,b) => a.rating.compareTo(b.rating));
     return Scaffold(
-      appBar: AppBar(title: Text('Opinion leader')),
+      appBar: AppBar(
+          title: Text('Лидеры рейтинга'),
+        ),
       body: ListView.separated(
         controller: ScrollController(),
         itemBuilder: (context, index){

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/add.dart';
 import 'package:opinionleader/data.dart';
@@ -15,9 +18,8 @@ class Profile extends StatefulWidget {
 }
 List<Comment> usercomments = [];
 class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
-
   TabController tabController;
-
+  File _image;
   @override
 
   void initState() {
