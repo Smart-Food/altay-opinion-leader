@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:opinionleader/home.dart';
 import 'package:opinionleader/search.dart';
 import 'package:opinionleader/favorite.dart';
 import 'package:opinionleader/profile.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/data.dart';
+
+import 'home.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Opinion leader',
-      home: BottomNavigationBarScreen(),
+      // home: BottomNavigationBarScreen(),
+      home: Home(),
     );
   }
 }

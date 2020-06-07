@@ -22,15 +22,19 @@ class _NewsListState extends State<NewsList> {
             },
             itemCount: posts.length,
           )),
-      floatingActionButton: CircleAvatar(
-        radius: 7.8 * 3,
-        backgroundColor: Color(0xFF63cb99),
-        child: IconButton(
-          icon: Icon(Icons.photo_camera, color: Colors.white,),
-          onPressed: () {Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => PostsCamera()));},
-        ),
-      ),
+//      floatingActionButton: CircleAvatar(
+//        radius: 7.8 * 3,
+//        backgroundColor: Color(0xFF63cb99),
+//        child: IconButton(
+//          icon: Icon(Icons.photo_camera, color: Colors.white,),
+//          onPressed: () {
+////            Navigator.of(context).push(MaterialPageRoute(
+////              builder: (context) => PostsCamera()));
+//            },
+//        ),
+//      ),
+//        bottomNavigationBar: Container(
+//          height: 70.0,)
     );
   }
 }

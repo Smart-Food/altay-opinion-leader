@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/add.dart';
 import 'package:opinionleader/data.dart';
+import 'package:opinionleader/post/post.dart';
 class Profile extends StatefulWidget {
   Profile({Key key, this.title}) : super(key: key);
 
@@ -166,8 +167,8 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
               child: TabBarView(
                   controller: tabController,
                   children: <Widget>[
-                    NewsList(posts),
-                    NewsList(posts),
+                    NewsList(userPosts),
+                    NewsList(userPosts),
                   ]),
             ),
           )

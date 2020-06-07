@@ -20,7 +20,6 @@ dependencies:
   flutter_snake_navigationbar: ^0.2.0
   flutter:
     sdk: flutter
-  firebase_auth: ^0.15.5+3
   cloud_firestore: ^0.13.4+2
   firebase_database: ^3.1.3
   provider: ^4.0.4
@@ -29,6 +28,22 @@ dependencies:
   http: ^0.12.1
   font_awesome_flutter: ^8.8.1
   camera: ^0.5.8+2
+  image_picker: ^0.6.7+1
+  firebase_messaging:
+
+  firebase_core:
+  firebase_auth:
+  google_sign_in:
+  intl:
+  flare_flutter:
+  transparent_image:
+  shared_preferences:
+  flip_card: ^0.2.1
+  firebase_storage:
+  time_machine: ^0.9.8
+  flutter_twitter_login: ^1.1.0
+  flutter_slidable: ^0.4.9
+  mongo_dart: ^0.3.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -38,6 +53,17 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   google_nav_bar: ^1.0.1
+  dependencies:
+
+    # The following adds the Cupertino Icons font to your application.
+    # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  pull_to_refresh: ^1.1.6
+  sqflite: ^1.1.5
+  cached_network_image: ^0.7.0
+
+
+
 
 
 # For information on the generic Dart part of this file, see the

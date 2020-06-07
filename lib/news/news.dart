@@ -7,7 +7,7 @@ import 'newsInfo.dart';
 // ignore: must_be_immutable
 class News extends StatefulWidget {
   Post post;
-  News({this.post });
+  News({this.post});
 
   @override
   ItemState createState() => ItemState();
@@ -75,7 +75,7 @@ class ItemState extends State<News> {
                                             ],
                                           ),
                                           Text(
-                                            widget.post.date.toString(),
+                                            widget.post.description.toString(),
                                             style: TextStyle(
                                                 color: Colors.black, fontSize: 14.0),
                                           ),
