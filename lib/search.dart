@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:opinionleader/data.dart';
-import 'package:opinionleader/news/newsInfo.dart';
 import 'package:opinionleader/post/post.dart';
 import 'package:opinionleader/user.dart';
 import 'package:opinionleader/post/comment.dart';
@@ -91,7 +90,7 @@ class SearchPage extends SearchDelegate<Post>{
   Widget buildResults(BuildContext context) {
     final suggestionList = query.isEmpty
         ? data
-        : data.where((p) => p.topic.contains(RegExp(query, caseSensitive: false))).toList();
+        : data.where((p) => p.description.contains(RegExp(query, caseSensitive: false))).toList();
 
     return ListView.separated(
       controller: ScrollController(),
@@ -133,7 +132,7 @@ class SearchPage extends SearchDelegate<Post>{
   Widget buildSuggestions(BuildContext context) {
     final suggestionList = query.isEmpty
         ? data
-        : data.where((p) => p.topic.contains(RegExp(query, caseSensitive: false))).toList();
+        : data.where((p) => p.description.contains(RegExp(query, caseSensitive: false))).toList();
 
     return ListView.separated(
       controller: ScrollController(),
@@ -144,24 +143,26 @@ class SearchPage extends SearchDelegate<Post>{
       scrollDirection: Axis.vertical,
       itemBuilder: (context, index){
         return ListTile(
-          onTap: () {
+          /*onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => NewsInfo(item: suggestionList[index]),
+                builder: (context) => ProductInfo(product: Product(name: suggestionList[index].name, id:suggestionList[index].id, picture: suggestionList[index].picture,
+                  value: suggestionList[index].value, brand: suggestionList[index].brand,
+                  oldPrice: suggestionList[index].oldPrice, price: suggestionList[index].price,)),
               ),
             );
-          },
+          },*/
           trailing: Text(suggestionList[index].likes.length.toString() ,
             style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),),
           title: RichText(
             text: TextSpan(
-                text: suggestionList[index].heading.toString(),
+                text: suggestionList[index].user.username.toString(),
                 style: TextStyle(
                     color: Colors.grey, fontWeight: FontWeight.bold),
                 ),
           ),
-          subtitle: Text(suggestionList[index].topic.toString()),
+          subtitle: Text(suggestionList[index].date.toString()),
           leading: Image.network(suggestionList[index].image),
         );},
 
