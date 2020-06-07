@@ -17,24 +17,10 @@ class NewsInfo extends StatefulWidget {
 }
 
 class _NewsInfoState extends State<NewsInfo> {
-  Text _buildRatingStars(int rating) {
-    String stars = '';
-    for (int i = 0; i < rating; i++) {
-      stars += '⭐ ';
-    }
-    stars.trim();
-    return Text(stars);
-  }
-
-
-
   @override
   Widget build(BuildContext context) {
     int totalCount = 0;
     double width = MediaQuery.of(context).size.width;
-//    cart.forEach((item){
-//      totalCount = totalCount + item.num;
-//    });
     Post prod = widget.item;
     return Scaffold(
       key: Key(prod.rating.toString()),
@@ -90,7 +76,7 @@ class _NewsInfoState extends State<NewsInfo> {
                   children: <Widget>[
                     SizedBox(width: 5.0),
                     Text(
-                      prod.user.username,
+                      prod.heading,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 35.0,
@@ -138,7 +124,6 @@ class _NewsInfoState extends State<NewsInfo> {
           ),
           //Divider(),
           //SizedBox(height: 5),
-          
           /*Container(
               child: Center(
                 child: ListView.builder(

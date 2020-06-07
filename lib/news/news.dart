@@ -54,6 +54,7 @@ class ItemState extends State<News> {
                                             image: NetworkImage("https://sun9-40.userapi.com/c857424/v857424894/dfe29/l2B0jorKZwE.jpg"))
                                     ),
                                   ),
+
                                   SizedBox(width: 10),
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,6 +79,7 @@ class ItemState extends State<News> {
                                         builder: (context) => CommentPage(widget.post.comments)));},
                                     child: Icon(Icons.bookmark_border, color: Colors.white, size: 24)
                                   ),
+
                                 ],
                               ),
                               SizedBox(height: 4),

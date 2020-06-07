@@ -21,3 +21,4 @@ class Post {
       this.date, this.likes, this.comments,
       this.isLiked, this.isSaved, this.rating, this.area, this.heading, this.postColor, this.topic);
 }
+
