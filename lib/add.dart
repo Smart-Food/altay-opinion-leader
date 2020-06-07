@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:opinionleader/post/post.dart';
 import 'package:opinionleader/maps/full_map.dart';
-
 import 'data.dart';
 
 class Add extends StatefulWidget {
@@ -21,7 +20,7 @@ class _AddState extends State<Add> {
   final TextEditingController _topic =  TextEditingController();
   final TextEditingController _description =  TextEditingController();
   final TextEditingController _area =  TextEditingController();
-  Color topicBorder = Colors.blueGrey;
+  Color topicColor = Colors.orangeAccent;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +53,7 @@ class _AddState extends State<Add> {
                       )
                   )
               ),
+              textInputAction: TextInputAction.done,
               controller: _heading,
               keyboardType: TextInputType.text,
               style: new TextStyle(
@@ -94,7 +94,7 @@ class _AddState extends State<Add> {
                   border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(15.0),
                       borderSide: new BorderSide(
-                          color: topicBorder
+                          color: Colors.blueGrey
                       )
                   )
               ),
@@ -123,8 +123,7 @@ class _AddState extends State<Add> {
                       child: FlatButton(
                         onPressed: () {
                           setState(() {
-                            _topic.text = _topic.text + "#Предложение ";
-                            topicBorder = Colors.green;
+                            _topic.text = _topic.text + " #Предложение";
                           });
                         },
                         child: Text("#Предложение", style: TextStyle(
@@ -145,8 +144,7 @@ class _AddState extends State<Add> {
                         child: FlatButton(
                           onPressed: () {
                             setState(() {
-                              _topic.text = _topic.text + "#Новости ";
-                              topicBorder = Colors.blue;
+                              _topic.text = _topic.text + " #Новости";
                             });
                           },
                           child: Text("#Новости", style: TextStyle(
@@ -167,7 +165,7 @@ class _AddState extends State<Add> {
                         child: FlatButton(
                           onPressed: () {
                             setState(() {
-                              _topic.text = _topic.text + "#Жалоба ";
+                              _topic.text = _topic.text + " #Жалоба";
                             });
                           },
                           child: Text("#Жалоба", style: TextStyle(
@@ -188,7 +186,7 @@ class _AddState extends State<Add> {
                         child: FlatButton(
                           onPressed: () {
                             setState(() {
-                              _topic.text = _topic.text + "#Обратнаясвязь ";
+                              _topic.text = _topic.text + " #Обратнаясвязь";
                             });
                           },
                           child: Text("#Обратнаясвязь", style: TextStyle(
@@ -209,7 +207,7 @@ class _AddState extends State<Add> {
                         child: FlatButton(
                           onPressed: () {
                             setState(() {
-                              _topic.text = _topic.text + "#Расписание ";
+                              _topic.text = _topic.text + " #Расписание";
                             });
                           },
                           child: Text("#Расписание", style: TextStyle(
@@ -309,11 +307,13 @@ class _AddState extends State<Add> {
                 ),
                 onPressed: () {
                   setState(() {
+                    if (_topic.text == "#Предложение" || _topic.text == " #Предложение") topicColor = Colors.green;
+                    else if (_topic.text == "#Новости"|| _topic.text == " #Новости") topicColor = Colors.blue;
+                    else if (_topic.text == "#Жалоба"|| _topic.text == " #Жалоба") topicColor = Colors.pinkAccent;
+                    else if (_topic.text == "#Обратнаясвязь"|| _topic.text == " #Обратнаясвязь") topicColor = Colors.yellow;
+                    else if (_topic.text == "#Расписание"|| _topic.text == " #Расписание") topicColor = Colors.purple;
                     posts.add(Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
-                        u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text, _heading.text, _topic.text));
-
-                    _area.clear();
-                    _description.clear();
+                        u2, _description.text, DateTime.now(), [], [com],true, false, 1, _area.text, _heading.text, topicColor, _topic.text));
                     Navigator.pop(context);
                   });
                 }
