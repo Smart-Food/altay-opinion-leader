@@ -4,13 +4,16 @@ import 'package:opinionleader/news/newsInfo.dart';
 import 'package:opinionleader/post/post.dart';
 import 'package:opinionleader/user.dart';
 import 'package:opinionleader/post/comment.dart';
+
+import 'home.dart';
+import 'login/authUtil.dart';
 //showSearch(context: context, delegate: SearchPage(posts));
 class Search extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Opinion leader'),
+        title: Text("Поиск"),
       ),
       body: Material(
           //animationDuration: duration,
