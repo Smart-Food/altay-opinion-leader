@@ -21,6 +21,7 @@ Post p4 = Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2
 Post p5 = Post('https://avatars.mds.yandex.net/get-altay/2714499/2a00000171061a2a8645b485942e1e845582/XXL',
     u5, 'Замысел', DateTime.now(), [], [com],false, false, 1, 'Ленинский район', 'Облагораживание двора', Colors.orangeAccent, '#Новости');
 
+
 List<Post> posts = [p1, p2, p3, p4, p5];
 List<Post> userPosts = [p1, p2];
 
