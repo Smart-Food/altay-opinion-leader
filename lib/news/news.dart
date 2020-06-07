@@ -51,7 +51,7 @@ class ItemState extends State<News> {
                                         shape: BoxShape.circle,
                                         image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage("https://sun9-40.userapi.com/c857424/v857424894/dfe29/l2B0jorKZwE.jpg"))
+                                            image: NetworkImage(widget.post.user.profilePicture))
                                     ),
                                   ),
 
