@@ -18,23 +18,21 @@ class _NewsListState extends State<NewsList> {
       body: Center (
         child: ListView.builder(
             itemBuilder: (BuildContext context, int index){
-              return News(post: posts[index]);
+              return News(post: widget.posts[index]);
             },
-            itemCount: posts.length,
+            itemCount: widget.posts.length,
           )),
-//      floatingActionButton: CircleAvatar(
-//        radius: 7.8 * 3,
-//        backgroundColor: Color(0xFF63cb99),
-//        child: IconButton(
-//          icon: Icon(Icons.photo_camera, color: Colors.white,),
-//          onPressed: () {
-////            Navigator.of(context).push(MaterialPageRoute(
-////              builder: (context) => PostsCamera()));
-//            },
-//        ),
-//      ),
-//        bottomNavigationBar: Container(
-//          height: 70.0,)
+      floatingActionButton: CircleAvatar(
+        radius: 7.8 * 3,
+        backgroundColor: Color(0xFF63cb99),
+        child: IconButton(
+          icon: Icon(Icons.photo_camera, color: Colors.white,),
+          onPressed: () {Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => PostsCamera()));},
+        ),
+      ),
+        bottomNavigationBar: Container(height: 70.0,)
     );
   }
 }
+

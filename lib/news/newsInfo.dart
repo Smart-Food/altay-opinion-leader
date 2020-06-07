@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'newsList.dart';
-
+import 'commentPage.dart';
+import 'commentCard.dart';
 import 'package:opinionleader/post/post.dart';
 import 'package:opinionleader/data.dart';
 
@@ -16,24 +17,10 @@ class NewsInfo extends StatefulWidget {
 }
 
 class _NewsInfoState extends State<NewsInfo> {
-  Text _buildRatingStars(int rating) {
-    String stars = '';
-    for (int i = 0; i < rating; i++) {
-      stars += '⭐ ';
-    }
-    stars.trim();
-    return Text(stars);
-  }
-
-
-
   @override
   Widget build(BuildContext context) {
     int totalCount = 0;
     double width = MediaQuery.of(context).size.width;
-//    cart.forEach((item){
-//      totalCount = totalCount + item.num;
-//    });
     Post prod = widget.item;
     return Scaffold(
       key: Key(prod.rating.toString()),
@@ -88,7 +75,7 @@ class _NewsInfoState extends State<NewsInfo> {
                   children: <Widget>[
                     SizedBox(width: 5.0),
                     Text(
-                      prod.user.username,
+                      prod.heading,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 35.0,
@@ -134,6 +121,19 @@ class _NewsInfoState extends State<NewsInfo> {
             padding: EdgeInsets.only(top: 0),
             child: Text(prod.description),
           ),
+          //Divider(),
+          //SizedBox(height: 5),
+          /*Container(
+              child: Center(
+                child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index){
+                    return CommentCard(comment: prod.comments[index]);
+                  },
+                  itemCount: prod.comments.length,
+                ),
+              ) ,
+          )*/
+
         ],
       ),
     );

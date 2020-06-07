@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/add.dart';
 import 'package:opinionleader/data.dart';
-import 'package:opinionleader/post/post.dart';
+import 'package:opinionleader/post/comment.dart';
+
+import 'news/commentPage.dart';
 class Profile extends StatefulWidget {
   Profile({Key key, this.title}) : super(key: key);
 
@@ -11,7 +13,7 @@ class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
-
+List<Comment> usercomments = [];
 class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
 
   TabController tabController;
@@ -20,9 +22,10 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
 
   void initState() {
     super.initState();
-    tabController = TabController(length: 2, vsync: this);
+    tabController = TabController(length: 3, vsync: this);
   }
   Widget build(BuildContext context) {
+    posts.forEach((item) {usercomments += item.comments;});
     return Scaffold(
       backgroundColor: Color(0xffF8F8FA),
       body: Column(
@@ -161,14 +164,21 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
                       fontFamily: 'OpenSans'
                   ),),
                 ),
+                Tab(
+                  child: Text("Репосты", style: TextStyle(
+                      fontSize: 12.5,
+                      fontFamily: 'OpenSans'
+                  ),),
+                ),
               ]),
           Expanded(
             child: Container(
               child: TabBarView(
                   controller: tabController,
                   children: <Widget>[
-                    NewsList(userPosts),
-                    NewsList(userPosts),
+                    NewsList(posts),
+                    CommentPage(usercomments),
+                    NewsList(posts)
                   ]),
             ),
           )
@@ -184,9 +194,6 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
           icon: Icon(Icons.add),
           color: Colors.white,
         ),
-      ),
-      bottomNavigationBar: Container(
-        height: 70.0,
       ),
     );
   }
