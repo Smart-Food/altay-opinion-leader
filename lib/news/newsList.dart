@@ -31,13 +31,14 @@ class _NewsListState extends State<NewsList> {
           child: IconButton(
             icon: Icon(Icons.photo_camera, color: Colors.white,),
             onPressed: () {
-                  open_camera();
-                  },
+              open_camera();
+            },
           ),
         ),
         bottomNavigationBar: Container(height: 70.0,)
     );
-  }
+
+}
   void open_camera() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
     setState(() {
@@ -46,12 +47,26 @@ class _NewsListState extends State<NewsList> {
   }
 }
 
-//IconButton(
-//icon: Icon(
-//Icons.add,
-//color: Colors.white),
-//onPressed: () {
-//
-//}
-//);
+class NewsListProfile extends StatefulWidget {
+  List<Post> posts;
+  NewsListProfile(this.posts);
+  @override
+  _NewsListProfileState createState() => _NewsListProfileState();
+}
 
+class _NewsListProfileState extends State<NewsListProfile> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center (
+          child: ListView.builder(
+            itemBuilder: (BuildContext context, int index){
+              return News(post: widget.posts[index]);
+            },
+            itemCount: widget.posts.length,
+          )),
+
+    );
+  }
+}

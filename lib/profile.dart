@@ -1,13 +1,14 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:opinionleader/news/newsList.dart';
 import 'package:opinionleader/add.dart';
 import 'package:opinionleader/data.dart';
 import 'package:opinionleader/post/comment.dart';
 
+import 'data.dart';
+import 'data.dart';
 import 'news/commentPage.dart';
+import 'news/newsList.dart';
+import 'news/newsList.dart';
 class Profile extends StatefulWidget {
   Profile({Key key, this.title}) : super(key: key);
 
@@ -18,8 +19,9 @@ class Profile extends StatefulWidget {
 }
 List<Comment> usercomments = [];
 class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
+
   TabController tabController;
-  File _image;
+
   @override
 
   void initState() {
@@ -178,9 +180,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
               child: TabBarView(
                   controller: tabController,
                   children: <Widget>[
-                    NewsList(posts),
+                    NewsListProfile(userPosts),
                     CommentPage(usercomments),
-                    NewsList(posts)
+                    NewsListProfile(posts)
                   ]),
             ),
           )
@@ -197,6 +199,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
           color: Colors.white,
         ),
       ),
+        bottomNavigationBar: Container(height: 70.0,)
     );
   }
 }
