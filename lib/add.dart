@@ -135,7 +135,7 @@ class _AddState extends State<Add> {
                   ),
                   SizedBox(width: 10),
                   Container(
-                    height: 30,
+                    height: 60,
                     decoration: BoxDecoration(
                         color: Colors.blue[200],
                         borderRadius: BorderRadius.circular(20.0)
@@ -225,20 +225,22 @@ class _AddState extends State<Add> {
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20.0),
             child: TextFormField(
-              decoration: new InputDecoration(
+              decoration: InputDecoration(
                   labelText: "Описание",
                   errorText: _inputErrorText,
                   fillColor: Colors.white,
-                  contentPadding: new EdgeInsets.symmetric(vertical: 60.0, horizontal: 10.0),
-                  border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(15.0),
-                      borderSide: new BorderSide(
+                  alignLabelWithHint: true,
+                  contentPadding: EdgeInsets.symmetric(vertical: 60.0, horizontal: 10.0),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: BorderSide(
                           color: Colors.blueGrey
                       )
                   )
               ),
               controller: _description,
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
               style: new TextStyle(
                   color: Colors.blueGrey
               ),
