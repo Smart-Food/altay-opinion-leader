@@ -35,3 +35,4 @@ class _NewsListState extends State<NewsList> {
     );
   }
 }
+

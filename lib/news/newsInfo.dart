@@ -63,7 +63,6 @@ class _NewsInfoState extends State<NewsInfo> {
                       color: Colors.black,
                       onPressed: () => Navigator.pop(context),
                     ),
-
                   ],
                 ),
               ),
