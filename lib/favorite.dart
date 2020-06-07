@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:opinionleader/area/areaCard.dart';
 import 'data.dart';
-
+import 'package:opinionleader/area/area.dart';
 class Favorite extends StatefulWidget {
-  Favorite({Key key, this.title}) : super(key: key);
-
-
-  final String title;
-
+  List<Area> areas;
+  Favorite({Key key, this.areas}) : super(key: key);
   @override
   _FavoriteState createState() => _FavoriteState();
 }
@@ -15,23 +13,15 @@ class _FavoriteState extends State<Favorite> {
 
   @override
   Widget build(BuildContext context) {
-    posts.sort((a,b) => a.rating.compareTo(b.rating));
+    //posts.sort((a,b) => a.rating.compareTo(b.rating));
     return Scaffold(
-      appBar: AppBar(title: Text('Opinion leader')),
+      appBar: AppBar(title: Text('Барнаул')),
       body: ListView.separated(
         controller: ScrollController(),
         itemBuilder: (context, index){
-          return ListTile(
-            title: Text(posts[index].user.username.toString()),
-            subtitle: Text(posts[index].date.toString()),
-            trailing: Text("${posts[index].likes.length}",
-              style: TextStyle(color: Colors.redAccent, fontSize: 20, fontWeight: FontWeight.w500),),
-            leading: CircleAvatar( child: Text(posts[index].rating.toString())),
-
-          );
-          //);
+          return AreaCard(area: areas[index]);
         },
-        itemCount: posts.length,
+        itemCount: areas.length,
         separatorBuilder: (context, index){
           return Divider();
         },
