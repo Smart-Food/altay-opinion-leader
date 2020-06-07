@@ -4,7 +4,11 @@ import 'package:opinionleader/add.dart';
 import 'package:opinionleader/data.dart';
 import 'package:opinionleader/post/comment.dart';
 
+import 'data.dart';
+import 'data.dart';
 import 'news/commentPage.dart';
+import 'news/newsList.dart';
+import 'news/newsList.dart';
 class Profile extends StatefulWidget {
   Profile({Key key, this.title}) : super(key: key);
 
@@ -176,9 +180,9 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
               child: TabBarView(
                   controller: tabController,
                   children: <Widget>[
-                    NewsList(posts),
+                    NewsListProfile(userPosts),
                     CommentPage(usercomments),
-                    NewsList(posts)
+                    NewsListProfile(posts)
                   ]),
             ),
           )
@@ -195,6 +199,7 @@ class _ProfileState extends State<Profile> with SingleTickerProviderStateMixin{
           color: Colors.white,
         ),
       ),
+        bottomNavigationBar: Container(height: 70.0,)
     );
   }
 }

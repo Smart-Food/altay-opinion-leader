@@ -36,3 +36,26 @@ class _NewsListState extends State<NewsList> {
   }
 }
 
+class NewsListProfile extends StatefulWidget {
+  List<Post> posts;
+  NewsListProfile(this.posts);
+  @override
+  _NewsListProfileState createState() => _NewsListProfileState();
+}
+
+class _NewsListProfileState extends State<NewsListProfile> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center (
+            child: ListView.builder(
+              itemBuilder: (BuildContext context, int index){
+                return News(post: widget.posts[index]);
+              },
+              itemCount: widget.posts.length,
+            )),
+
+    );
+  }
+}
